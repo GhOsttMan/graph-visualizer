@@ -1,0 +1,17 @@
+.grid-item {
+  float: left;
+  height: 3%;
+  width: 3%;
+  background-color: rgba(64, 238, 215, 0.993);
+  border: 1px solid rgba(226, 221, 230, 0.8);
+  padding: 1%;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin-left: 0px;
+}
+.grid-container {
+  position: initial;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 2%;
+}
