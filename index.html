@@ -27,7 +27,7 @@
     <div class="wrapper">
       <nav id="sidebar">
         <div class="sidebar-header">
-          <h3>TOOLS</h3>
+          <h3>Graph visualizer</h3>
         </div>
 
         <ul class="list-unstyled components">
@@ -47,9 +47,14 @@
 
         <ul class="list-unstyled CTAs">
           <li>
-            <a href="#" onclick="grid()" class="buttoncol"
+            <a href="#" class="buttoncol"
               ><script>
+                var obj = document.getElementsByClassName("buttoncol");
                 document.write(SelectedAlgo);
+                obj[0].onclick = function(){
+                  var obj = document.getElementsByClassName("buttoncol");
+                  obj[0].style.backgroundColor = "#ec1f1f";
+                };
               </script></a
             >
           </li>
@@ -75,22 +80,23 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#"
+                <a class="nav-link button"  href="#"
                   >Add Start Point <span class="sr-only">(current)</span></a
                 >
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#"
+                <a class="nav-link button" href="#"
                   >Add End Point <span class="sr-only">(current)</span></a
                 >
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#"
-                  >Add Obstacle <span class="sr-only">(current)</span></a
+                <a class="nav-link button" onclick="obstacle()" href="#"
+                  >Add Obstacle <span class="sr-only">(current)</span>
+                  </a
                 >
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#"
+                <a class="nav-link button" onclick = "clearGrid()" href="#"
                   >Clear Board <span class="sr-only">(current)</span></a
                 >
               </li>

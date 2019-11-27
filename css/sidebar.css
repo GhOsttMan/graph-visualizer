@@ -141,5 +141,21 @@ a.article:hover {
   }
 }
 .buttoncol {
-  background-color: #db5656;
+  background-color: #007bff;
+}
+.button {
+  background-color: white;
+  color: rgb(250, 249, 249);
+  border: 2px solid rgb(26, 194, 194);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.9em !important;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+.button:hover {
+  background-color: rgb(20, 181, 221); /* Green */
+  color: rgb(245, 243, 243);
 }

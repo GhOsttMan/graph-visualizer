@@ -1,7 +1,8 @@
 var SelectedAlgo = "BFS";
-function grid() {
+var ClickedObstacle = 0;
+function obstacle() {
   var arr = document.getElementsByClassName("grid-item");
-  console.log(arr.length);
+  //console.log(arr.length);
   var ob = 0;
   for (var i = 0; i < 792; i++) {
     arr[i].onmousedown = function() {
@@ -12,7 +13,7 @@ function grid() {
   for (var i = 0; i < 792; i++) {
     arr[i].onmouseup = function() {
       ob = 0;
-      this.style.backgroundColor = "red";
+      this.style.backgroundColor = "black";
     };
   }
   for (var i = 0; i < 792; i++) {
@@ -27,4 +28,10 @@ function grid() {
   var bd = $(".navbar").width();
   console.log(w + " " + h + " " + cww + " " + bd);
   //ob.style.backgroundColor = "red";*/
+}
+function clearGrid(){
+  var arr = document.getElementsByClassName("grid-item");
+  for (var i = 0; i < 792; i++) {
+    arr[i].style.backgroundColor = "rgba(64, 238, 215, 0.993)";
+  }
 }
