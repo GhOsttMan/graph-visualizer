@@ -14,7 +14,7 @@
     />
     <script src="javaScriptCode/obstacle.js"></script>
     <script src="javaScriptCode/input.js"></script>
-    <script src="javaScriptCode/input.js"></script>
+    <script src="javaScriptCode/algoHandler.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/sidebar.css" />
     <link rel="stylesheet" href="css/grid.css" />
@@ -34,29 +34,60 @@
 
         <ul class="list-unstyled components">
           <li>
-            <a href="#">Breadth First Search</a>
+            <a href="#" onclick="setBFS()">Breadth First Search</a>
+            <script>
+              function setBFS() {
+                SelectedAlgo = "Breadth First Search";
+                setName();
+                //console.log(SelectedAlgo);
+              }
+            </script>
           </li>
           <li>
-            <a href="#">Bidirectional Search</a>
+            <a href="#" onclick="setBD()">Bidirectional Search</a>
+            <script>
+              function setBD() {
+                SelectedAlgo = "Bidirectional Search";
+                setName();
+              }
+            </script>
           </li>
           <li>
-            <a href="#">A* Search</a>
+            <a href="#" onclick="setA()">A* Search</a>
+            <script>
+              function setA() {
+                SelectedAlgo = "A* Search";
+                setName();
+              }
+            </script>
           </li>
           <li>
-            <a href="#">Flood Fill Algorithm</a>
+            <a href="#" onclick="setFlood()">Flood Fill Algorithm</a>
+            <script>
+              function setFlood() {
+                SelectedAlgo = "Flood Fill Algorithm";
+                setName();
+              }
+            </script>
           </li>
         </ul>
 
         <ul class="list-unstyled CTAs">
           <li>
-            <a href="#" class="buttoncol"
+            <a href="#" onclick="RunAlgo()" class="buttoncol"
               ><script>
-                var obj = document.getElementsByClassName("buttoncol");
                 document.write(SelectedAlgo);
-                obj[0].onclick = function(){
-                  var obj = document.getElementsByClassName("buttoncol");
-                  obj[0].style.backgroundColor = "#ec1f1f";
-                };
+                function setName() {
+                  let ar = document.getElementsByClassName("buttoncol");
+                  ar[0].innerHTML = SelectedAlgo;
+                }
+                function RunAlgo() {
+                  if (runningAlgo == 0) {
+                    let ar = document.getElementsByClassName("buttoncol");
+                    ar[0].style.backgroundColor = "red";
+                    Handler();
+                  }
+                }
               </script></a
             >
           </li>
@@ -82,7 +113,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link button" onclick="InputSource()"  href="#" 
+                <a class="nav-link button" onclick="InputSource()" href="#"
                   >Add Start Point <span class="sr-only">(current)</span></a
                 >
               </li>
@@ -94,11 +125,15 @@
               <li class="nav-item active">
                 <a class="nav-link button" onclick="obstacle()" href="#"
                   >Add Obstacle <span class="sr-only">(current)</span>
-                  </a
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link button" onclick="clearPath()" href="#"
+                  >Clear Path <span class="sr-only">(current)</span></a
                 >
               </li>
               <li class="nav-item active">
-                <a class="nav-link button" onclick = "clearGrid()" href="#"
+                <a class="nav-link button" onclick="clearGrid()" href="#"
                   >Clear Board <span class="sr-only">(current)</span></a
                 >
               </li>
@@ -107,7 +142,7 @@
         </nav>
         <div class="grid-container">
           <script>
-            for (var i = 0; i < 792; i++) {
+            for (var i = 0; i < totalGrid; i++) {
               document.write("<div class = 'grid-item'></div>");
             }
           </script>

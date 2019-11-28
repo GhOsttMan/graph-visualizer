@@ -1,67 +1,95 @@
-var SelectedAlgo = "BFS";
+var SelectedAlgo = "Breadth First Search";
 var Obstacle = 0;
+var obsColor, srcColor, desColor;
+var currStateColor, nextStateColor;
+(obsColor = "black"), (srcColor = "yellow");
+desColor = "red";
+currStateColor = "blue";
+nextStateColor = "green";
+var gridColor = "rgba(64, 238, 215, 0.993)";
+var totalGrid = 792;
 function obstacle() {
-  if(src == 1) offSrc();
-  if(des == 1) offDes();
+  if (src == 1) offSrc();
+  if (des == 1) offDes();
+  clearPath();
   Obstacle = 1;
   var arr = document.getElementsByClassName("grid-item");
   //console.log(arr.length);
   var ob = 0;
-  for (var i = 0; i < 792; i++) {
+  for (var i = 0; i < totalGrid; i++) {
     arr[i].onmousedown = function() {
       ob = 1;
-      if(this.style.backgroundColor == "red" || this.style.backgroundColor == "yellow"){
+      if (
+        this.style.backgroundColor == desColor ||
+        this.style.backgroundColor == srcColor
+      ) {
         // nothing change
-      }
-      else if(this.style.backgroundColor == "black") {
-        this.style.backgroundColor = "rgba(64, 238, 215, 0.993)";
-      }
-      else this.style.backgroundColor = "black";
+      } else if (this.style.backgroundColor == obsColor) {
+        this.style.backgroundColor = gridColor;
+      } else this.style.backgroundColor = obsColor;
     };
   }
-  for (var i = 0; i < 792; i++) {
+  for (var i = 0; i < totalGrid; i++) {
     arr[i].onmouseup = function() {
       ob = 0;
-      
     };
   }
-  for (var i = 0; i < 792; i++) {
+  for (var i = 0; i < totalGrid; i++) {
     arr[i].onmouseenter = function() {
       if (ob == 1) {
-        if(this.style.backgroundColor == "red" || this.style.backgroundColor == "yellow"){
+        if (
+          this.style.backgroundColor == desColor ||
+          this.style.backgroundColor == srcColor
+        ) {
           // nothing change
-        }
-        else if(this.style.backgroundColor == "black") {
-          this.style.backgroundColor = "rgba(64, 238, 215, 0.993)";
-        }
-        else this.style.backgroundColor = "black";
+        } else if (this.style.backgroundColor == obsColor) {
+          this.style.backgroundColor = gridColor;
+        } else this.style.backgroundColor = obsColor;
       }
     };
   }
 }
-
-function clearGrid(){
-  if(Obstacle == 1) offObstacle();
+function clearPath() {
+  if (runningAlgo == 1) return;
+  if (Obstacle == 1) offObstacle();
+  if (src == 1) offSrc();
+  if (des == 1) offDes();
   var arr = document.getElementsByClassName("grid-item");
-  for (var i = 0; i < 792; i++) {
-    arr[i].style.backgroundColor = "rgba(64, 238, 215, 0.993)";
+  for (var i = 0; i < totalGrid; i++) {
+    if (
+      arr[i].style.backgroundColor == currStateColor ||
+      arr[i].style.backgroundColor == nextStateColor ||
+      arr[i].style.backgroundColor == pathColor
+    ) {
+      arr[i].style.backgroundColor = gridColor;
+    }
   }
 }
-function offObstacle(){
+function clearGrid() {
+  if (runningAlgo == 1) return;
+  if (Obstacle == 1) offObstacle();
+  if (src == 1) offSrc();
+  if (des == 1) offDes();
+  var arr = document.getElementsByClassName("grid-item");
+  for (var i = 0; i < totalGrid; i++) {
+    arr[i].style.backgroundColor = gridColor;
+  }
+}
+function offObstacle() {
   //console.log("Entering");
   Obstacle = 0;
   var arr = document.getElementsByClassName("grid-item");
-  for (var i = 0; i < 792; i++) {
+  for (var i = 0; i < totalGrid; i++) {
     arr[i].onmousedown = function() {
       // do nothing
     };
   }
-  for (var i = 0; i < 792; i++) {
+  for (var i = 0; i < totalGrid; i++) {
     arr[i].onmouseup = function() {
       // do nothing
     };
   }
-  for (var i = 0; i < 792; i++) {
+  for (var i = 0; i < totalGrid; i++) {
     arr[i].onmouseenter = function() {
       // do nothing
     };
