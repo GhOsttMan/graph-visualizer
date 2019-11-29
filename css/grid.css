@@ -8,6 +8,7 @@
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   margin-left: 0px;
+  transition-duration: 1000ms;
 }
 .grid-container {
   position: initial;

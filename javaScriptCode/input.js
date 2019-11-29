@@ -3,9 +3,11 @@ var sx = -1,
 var src = 0,
   des = 0;
 function InputSource() {
+  if (runningAlgo == 1) return;
   if (Obstacle == 1) offObstacle();
   if (des == 1) offDes();
   clearPath();
+  if (runningAlgo == 1) return;
   src = 1;
   var arr = document.getElementsByClassName("grid-item");
   for (var i = 0; i < totalGrid; i++) {
@@ -44,6 +46,7 @@ function offDes() {
   }
 }
 function InputDes() {
+  if (runningAlgo == 1) return;
   if (Obstacle == 1) offObstacle();
   if (src == 1) offSrc();
   clearPath();

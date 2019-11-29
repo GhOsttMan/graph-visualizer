@@ -15,6 +15,7 @@
     <script src="javaScriptCode/obstacle.js"></script>
     <script src="javaScriptCode/input.js"></script>
     <script src="javaScriptCode/algoHandler.js"></script>
+    <script src="javaScriptCode/BreadthFirstSearch.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/sidebar.css" />
     <link rel="stylesheet" href="css/grid.css" />
@@ -37,6 +38,7 @@
             <a href="#" onclick="setBFS()">Breadth First Search</a>
             <script>
               function setBFS() {
+                if (runningAlgo == 1) return;
                 SelectedAlgo = "Breadth First Search";
                 setName();
                 //console.log(SelectedAlgo);
@@ -47,6 +49,7 @@
             <a href="#" onclick="setBD()">Bidirectional Search</a>
             <script>
               function setBD() {
+                if (runningAlgo == 1) return;
                 SelectedAlgo = "Bidirectional Search";
                 setName();
               }
@@ -56,6 +59,7 @@
             <a href="#" onclick="setA()">A* Search</a>
             <script>
               function setA() {
+                if (runningAlgo == 1) return;
                 SelectedAlgo = "A* Search";
                 setName();
               }
@@ -65,6 +69,7 @@
             <a href="#" onclick="setFlood()">Flood Fill Algorithm</a>
             <script>
               function setFlood() {
+                if (runningAlgo == 1) return;
                 SelectedAlgo = "Flood Fill Algorithm";
                 setName();
               }

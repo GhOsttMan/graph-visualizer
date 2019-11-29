@@ -5,10 +5,11 @@ var currStateColor, nextStateColor;
 (obsColor = "black"), (srcColor = "yellow");
 desColor = "red";
 currStateColor = "blue";
-nextStateColor = "green";
+nextStateColor = "orange";
 var gridColor = "rgba(64, 238, 215, 0.993)";
 var totalGrid = 792;
 function obstacle() {
+  if (runningAlgo == 1) return;
   if (src == 1) offSrc();
   if (des == 1) offDes();
   clearPath();
