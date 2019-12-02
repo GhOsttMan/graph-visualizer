@@ -2,6 +2,7 @@ var SelectedAlgo = "Breadth First Search";
 var Obstacle = 0;
 var obsColor, srcColor, desColor;
 var currStateColor, nextStateColor;
+var selector = document.getElementsByClassName("nav-link button");
 (obsColor = "black"), (srcColor = "yellow");
 desColor = "red";
 currStateColor = "blue";
@@ -13,6 +14,7 @@ function obstacle() {
   if (src == 1) offSrc();
   if (des == 1) offDes();
   clearPath();
+  selector[2].style.backgroundColor = "rgb(20, 181, 221)";
   Obstacle = 1;
   var arr = document.getElementsByClassName("grid-item");
   //console.log(arr.length);
@@ -78,6 +80,7 @@ function clearGrid() {
 }
 function offObstacle() {
   //console.log("Entering");
+  selector[2].style.backgroundColor = "white";
   Obstacle = 0;
   var arr = document.getElementsByClassName("grid-item");
   for (var i = 0; i < totalGrid; i++) {

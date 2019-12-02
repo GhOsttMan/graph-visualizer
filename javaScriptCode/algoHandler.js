@@ -47,6 +47,12 @@ function Handler() {
     } else {
       bfs(cntD);
     }
+  } else if (SelectedAlgo == "Bidirectional Search") {
+    if (cntS != 1 || cntD != 1) {
+      alert("you have to select exactly one source and one destination");
+    } else {
+      bidirection();
+    }
   }
   HoldingVisualization();
 }
