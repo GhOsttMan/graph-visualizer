@@ -8,7 +8,7 @@ var dx = [1, -1, 0, 0];
 var dy = [0, 0, 1, -1];
 var gridRow = 24,
   gridCol = 33;
-var Time = 5;
+var Time = 10;
 function Handler() {
   if (src == 1) offSrc();
   if (des == 1) offDes();

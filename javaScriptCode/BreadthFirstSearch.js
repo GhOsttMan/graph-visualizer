@@ -52,7 +52,6 @@ function bfs(totalDes) {
       arr[idx].style.backgroundColor != srcColor &&
       arr[idx].style.backgroundColor != desColor
     ) {
-      // arr[idx].style.backgroundColor = currStateColor;
       type.push("2");
       index.push(idx);
     }
@@ -76,7 +75,6 @@ function bfs(totalDes) {
             if (arr[idx].style.backgroundColor == desColor) {
               countDes++;
             } else {
-              //arr[idx].style.backgroundColor = nextStateColor;
               type.push("1");
               index.push(idx);
             }
@@ -88,25 +86,22 @@ function bfs(totalDes) {
   for (let i = 0; i < destinationX.length; i++) {
     let p = destinationX[i],
       q = destinationY[i];
-    //console.log(p + " " + q);
     while (prvx[p][q] != p || prvy[p][q] != q) {
       var px = prvx[p][q],
         py = prvy[p][q];
       idx = parseInt(parseInt(px * 33) + py);
-      path.push(idx);
-      //arr[idx].style.backgroundColor = pathColor;
+      if (arr[idx].style.backgroundColor != desColor) path.push(idx);
       (p = px), (q = py);
     }
     path.pop();
   }
-  //console.log(type.length);
+
   for (let i = 0; i < type.length; i++) {
     visualizeGraph(i);
   }
   for (let i = 0; i < path.length; i++) {
     visualizePath(i);
   }
-  //console.log("OK");
 }
 function visualizePath(i) {
   setTimeout(function() {
@@ -115,7 +110,6 @@ function visualizePath(i) {
 }
 function visualizeGraph(i) {
   setTimeout(function() {
-    //console.log(i);
     if (type[i] == "2") {
       arr[parseInt(index[i])].style.backgroundColor = currStateColor;
     } else {
