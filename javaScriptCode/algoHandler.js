@@ -54,6 +54,12 @@ function Handler() {
     } else {
       bidirection();
     }
+  } else if (SelectedAlgo == "Flood Fill Algorithm") {
+    if (cntS < 1 || cntD < 1) {
+      alert("You have to select source and destination");
+    } else {
+      flood(cntD);
+    }
   }
   HoldingVisualization();
 }
