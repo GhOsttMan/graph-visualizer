@@ -14,7 +14,7 @@ function obstacle() {
   if (src == 1) offSrc();
   if (des == 1) offDes();
   clearPath();
-  selector[2].style.backgroundColor = "rgb(20, 181, 221)";
+
   Obstacle = 1;
   var arr = document.getElementsByClassName("grid-item");
   //console.log(arr.length);
@@ -80,7 +80,7 @@ function clearGrid() {
 }
 function offObstacle() {
   //console.log("Entering");
-  selector[2].style.backgroundColor = "white";
+
   Obstacle = 0;
   var arr = document.getElementsByClassName("grid-item");
   for (var i = 0; i < totalGrid; i++) {

@@ -111,7 +111,7 @@ function bfs(totalDes) {
 function visualizePath(i) {
   setTimeout(function() {
     arr[path[i]].style.backgroundColor = pathColor;
-  }, 20 * (type.length + i));
+  }, Time * (type.length + i));
 }
 function visualizeGraph(i) {
   setTimeout(function() {
@@ -121,5 +121,5 @@ function visualizeGraph(i) {
     } else {
       arr[parseInt(index[i])].style.backgroundColor = nextStateColor;
     }
-  }, 20 * i);
+  }, Time * i);
 }

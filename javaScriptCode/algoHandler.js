@@ -8,6 +8,7 @@ var dx = [1, -1, 0, 0];
 var dy = [0, 0, 1, -1];
 var gridRow = 24,
   gridCol = 33;
+var Time = 5;
 function Handler() {
   if (src == 1) offSrc();
   if (des == 1) offDes();
@@ -61,5 +62,5 @@ function HoldingVisualization() {
     runningAlgo = 0;
     let ar = document.getElementsByClassName("buttoncol");
     ar[0].style.backgroundColor = "#007bff";
-  }, 20 * (type.length + path.length));
+  }, Time * (type.length + path.length));
 }

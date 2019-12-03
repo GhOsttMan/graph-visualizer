@@ -25,7 +25,8 @@ function bidirection() {
   cnt[destinationX[0]][destinationY[0]] = 2;
   qx.enqueue(destinationX[0]);
   qy.enqueue(destinationY[0]);
-
+  destinationX.pop();
+  destinationY.pop();
   arr = document.getElementsByClassName("grid-item");
   let ok = 1;
   while (!qx.isEmpty() && ok == 1) {
@@ -39,7 +40,6 @@ function bidirection() {
       arr[idx].style.backgroundColor != srcColor &&
       arr[idx].style.backgroundColor != desColor
     ) {
-      // arr[idx].style.backgroundColor = currStateColor;
       type.push("2");
       index.push(idx);
     }
@@ -62,38 +62,37 @@ function bidirection() {
             cnt[xx][yy] = cnt[x][y];
             if (arr[idx].style.backgroundColor == desColor) {
             } else {
-              //arr[idx].style.backgroundColor = nextStateColor;
               type.push("1");
               index.push(idx);
             }
+          } else if (cnt[x][y] != cnt[xx][yy] && cnt[xx][yy] != 0) {
+            ok = 0;
+
+            destinationX.push(x);
+            destinationY.push(y);
+            destinationX.push(xx);
+            destinationY.push(yy);
+            break;
           }
-        } else if (cnt[x][y] != cnt[xx][yy] && cnt[xx][yy] != 0) {
-          ok = 0;
-          console.log("ok");
-          destinationX.push(xx);
-          destinationY.push(yy);
-          break;
         }
-        console.log(xx + " " + yy + " " + cnt[xx][yy]);
       }
-      // console.log(xx + " " + yy + " " + cnt[xx][yy]);
     }
   }
+
   for (let i = 0; i < destinationX.length; i++) {
     let p = destinationX[i],
       q = destinationY[i];
-    //console.log(p + " " + q);
+    idx = parseInt(parseInt(p * 33) + q);
+    path.push(idx);
     while (prvx[p][q] != p || prvy[p][q] != q) {
       var px = prvx[p][q],
         py = prvy[p][q];
       idx = parseInt(parseInt(px * 33) + py);
       path.push(idx);
-      //arr[idx].style.backgroundColor = pathColor;
       (p = px), (q = py);
     }
     path.pop();
   }
-  // console.log(ok);
   for (let i = 0; i < type.length; i++) {
     visualizeGraph(i);
   }
@@ -104,15 +103,14 @@ function bidirection() {
 function visualizePath(i) {
   setTimeout(function() {
     arr[path[i]].style.backgroundColor = pathColor;
-  }, 20 * (type.length + i));
+  }, Time * (type.length + i));
 }
 function visualizeGraph(i) {
   setTimeout(function() {
-    //console.log(i);
     if (type[i] == "2") {
       arr[parseInt(index[i])].style.backgroundColor = currStateColor;
     } else {
       arr[parseInt(index[i])].style.backgroundColor = nextStateColor;
     }
-  }, 20 * i);
+  }, Time * i);
 }
