@@ -60,6 +60,8 @@ function Handler() {
     } else {
       flood(cntD);
     }
+  } else {
+    alert("This Algorithm Not Available Right Now");
   }
   HoldingVisualization();
 }
