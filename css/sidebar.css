@@ -44,14 +44,14 @@ a:focus {
   align-items: stretch;
 }
 #sidebar {
-  min-width: 220px;
-  max-width: 220px;
+  min-width: 250px;
+  max-width: 250px;
   background: #7386d5;
   color: #fff;
   transition: all 0.3s;
 }
 #sidebar.active {
-  margin-left: -220px;
+  margin-left: -250px;
 }
 
 #sidebar .sidebar-header {
@@ -131,7 +131,7 @@ a.article:hover {
 
 @media (maz-width: 768px) {
   #sidebar {
-    margin-left: -220px;
+    margin-left: -250px;
   }
   #sidebar.active {
     margin-left: 0px;

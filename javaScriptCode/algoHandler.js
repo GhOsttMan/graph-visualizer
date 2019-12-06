@@ -15,7 +15,11 @@ function Handler() {
   if (Obstacle == 1) offObstacle();
   clearPath();
   runningAlgo = 1;
-  // console.log(obstacle);
+  console.log(Obstacle);
+  console.log($(document).width());
+  if ($(document).width() < 500) {
+    $("#sidebar").toggleClass("active");
+  }
   index = [];
   type = [];
   sourceX = [];
